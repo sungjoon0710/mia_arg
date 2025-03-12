@@ -3,7 +3,7 @@ name: Deploy Vite to GitHub Pages
 on:
   push:
     branches:
-      - main  # or whichever branch you want to trigger on
+      - main  # or whichever branch triggers your deploy
 
 jobs:
   build-and-deploy:
@@ -20,7 +20,6 @@ jobs:
 
       - name: Install dependencies & build
         run: |
-          cd babel
           npm install
           npm run build
 
@@ -28,4 +27,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: babel/dist
+          publish_dir: dist   # Now it's just dist/ at the project root
