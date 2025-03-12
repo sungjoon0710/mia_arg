@@ -3,7 +3,7 @@ name: Deploy Vite to GitHub Pages
 on:
   push:
     branches:
-      - main  # or whichever branch triggers your deploy
+      - main
 
 jobs:
   build-and-deploy:
@@ -27,4 +27,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist   # Now it's just dist/ at the project root
+          publish_dir: dist
+          # Optionally set cname: yourdomain.com
