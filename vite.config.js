@@ -11,11 +11,13 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        'react': 'react/dist/react.js',
+        'react-dom': 'react-dom/dist/react-dom.js'
       }
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-slot'],
+      include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-slot', 'framer-motion'],
       exclude: ['tailwindcss', 'postcss', 'autoprefixer']
     },
     build: {
