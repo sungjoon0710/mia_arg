@@ -15,11 +15,20 @@ export default defineConfig(({ mode }) => {
       }
     },
     optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-slot'],
       exclude: ['tailwindcss', 'postcss', 'autoprefixer']
     },
     build: {
       commonjsOptions: {
         include: [/tailwindcss/, /postcss/, /autoprefixer/]
+      },
+      rollupOptions: {
+        external: ['react/jsx-runtime'],
+        output: {
+          globals: {
+            'react/jsx-runtime': 'jsxRuntime'
+          }
+        }
       }
     }
   }
