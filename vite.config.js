@@ -14,22 +14,9 @@ export default defineConfig(({ mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
     },
-    optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-slot', 'framer-motion'],
-      exclude: ['tailwindcss', 'postcss', 'autoprefixer']
-    },
     build: {
-      commonjsOptions: {
-        include: [/tailwindcss/, /postcss/, /autoprefixer/]
-      },
-      rollupOptions: {
-        external: ['react/jsx-runtime'],
-        output: {
-          globals: {
-            'react/jsx-runtime': 'jsxRuntime'
-          }
-        }
-      }
+      outDir: 'dist',
+      sourcemap: true
     }
   }
 })

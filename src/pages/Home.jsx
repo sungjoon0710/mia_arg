@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -22,20 +21,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Sticky Top Navigation with Colorful Boxes */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="sticky top-0 w-full bg-white shadow z-10"
-      >
+      <header className="sticky top-0 w-full bg-white shadow z-10 transition-all duration-300">
         <nav className="flex items-center justify-end px-6 py-4 gap-6">
           {navItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.1 * index }}
-              className={`${item.color} rounded-lg p-2 hover:shadow-lg transition-shadow`}
+              className={`${item.color} rounded-lg p-2 hover:shadow-lg transition-all duration-300 hover:scale-105`}
             >
               <a 
                 href={item.href} 
@@ -43,34 +34,24 @@ export default function Home() {
               >
                 {item.text}
               </a>
-            </motion.div>
+            </div>
           ))}
         </nav>
-      </motion.header>
+      </header>
 
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full h-screen flex flex-col items-center justify-center text-center bg-gray-100"
-      >
+      <section className="w-full h-screen flex flex-col items-center justify-center text-center bg-gray-100">
         <p className="text-lg uppercase text-gray-600 tracking-wider mb-4">
           REACH HIGHER
         </p>
         <h1 className="text-8xl leading-none font-extrabold text-gray-800">
           BABEL
         </h1>
-      </motion.section>
+      </section>
 
       {/* Main Content Section */}
-      <motion.main
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-4xl mx-auto flex flex-wrap justify-center gap-6 mt-12"
-      >
-        <Card className="w-80 text-center">
+      <main className="w-full max-w-4xl mx-auto flex flex-wrap justify-center gap-6 mt-12">
+        <Card className="w-80 text-center transition-all duration-300 hover:scale-105">
           <CardContent className="p-6">
             <h2 className="text-2xl font-semibold">Our Mission</h2>
             <p className="text-gray-600 mt-2">
@@ -79,7 +60,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <Card className="w-80 text-center">
+        <Card className="w-80 text-center transition-all duration-300 hover:scale-105">
           <CardContent className="p-6">
             <h2 className="text-2xl font-semibold">Our Services</h2>
             <p className="text-gray-600 mt-2">
@@ -87,19 +68,17 @@ export default function Home() {
             </p>
           </CardContent>
         </Card>
-      </motion.main>
+      </main>
 
       {/* Call to Action */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="my-10 flex justify-center"
-      >
-        <Button onClick={handleGetStarted} className="px-8 py-4 text-lg font-medium">
+      <div className="my-10 flex justify-center">
+        <Button 
+          onClick={handleGetStarted} 
+          className="px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
+        >
           Get Started
         </Button>
-      </motion.div>
+      </div>
     </div>
   );
 }
