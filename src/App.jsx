@@ -3,8 +3,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 export default function App() {
+  // Use the same base path as Vite
+  const basename = import.meta.env.MODE === 'production' ? '/mia_arg' : '/'
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         {/* Define a route for Home */}
         <Route path="/" element={<Home />} />
