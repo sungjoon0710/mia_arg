@@ -11,9 +11,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-        'react': 'react/dist/react.js',
-        'react-dom': 'react-dom/dist/react-dom.js'
+        '@': fileURLToPath(new URL('./src', import.meta.url))
       }
     },
     optimizeDeps: {
