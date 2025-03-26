@@ -35,6 +35,11 @@ export default defineConfig(({ mode }) => {
     },
     optimizeDeps: {
       include: ['react', 'react-dom', 'react-router-dom']
+    },
+    esbuild: {
+      loader: 'jsx',
+      include: /src\/.*\.[jt]sx?$/,
+      exclude: []
     }
   }
 })
