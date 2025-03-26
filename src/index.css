@@ -1,18 +1,32 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
   }
   
-  h1 {
-    color: #333;
+  html {
+    @apply antialiased;
   }
   
-  button {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
+  body {
+    @apply bg-gray-50 text-gray-900;
   }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
