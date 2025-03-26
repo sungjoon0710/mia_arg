@@ -12,11 +12,25 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
-      }
+      },
+      extensions: ['.js', '.jsx', '.json']
     },
     build: {
       outDir: 'dist',
-      sourcemap: true
+      sourcemap: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'router-vendor': ['react-router-dom']
+          }
+        }
+      }
+    },
+    server: {
+      headers: {
+        'Content-Type': 'application/javascript'
+      }
     }
   }
 })
