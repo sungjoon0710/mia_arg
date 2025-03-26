@@ -25,7 +25,8 @@ export default defineConfig(({ mode }) => {
             'router-vendor': ['react-router-dom']
           }
         }
-      }
+      },
+      assetsDir: 'assets'
     },
     server: {
       headers: {
