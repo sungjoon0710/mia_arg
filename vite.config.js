@@ -32,6 +32,9 @@ export default defineConfig(({ mode }) => {
       headers: {
         'Content-Type': 'application/javascript'
       }
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom']
     }
   }
 })
