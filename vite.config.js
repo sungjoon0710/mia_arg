@@ -33,7 +33,9 @@ export default defineConfig(({ mode }) => {
       open: true,
       headers: {
         'Content-Type': 'application/javascript',
-        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;"
+        'Content-Security-Policy': mode === 'development' 
+          ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https: ws:;"
+          : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;"
       }
     },
     optimizeDeps: {
