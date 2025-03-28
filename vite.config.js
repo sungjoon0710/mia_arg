@@ -32,7 +32,8 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       open: true,
       headers: {
-        'Content-Type': 'application/javascript'
+        'Content-Type': 'application/javascript',
+        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;"
       }
     },
     optimizeDeps: {
